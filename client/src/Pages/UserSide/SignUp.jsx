@@ -1,25 +1,57 @@
+import axios from 'axios'
 import React from "react";
+import {toast, ToastContainer} from 'react-toastify'
+import 'react-toastify/ReactToastify.css'
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { signIn } from '../../redux/user/userSlice';
 
 const SignUp = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
-  const signUp = () => {
+  const signUp = async (data) => {
     try {
-      console.log("success")
+      const {userName, email, phoneNumber, password} = data
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/user/register`,{
+        userName,
+        email,
+        phoneNumber,
+        password
+      })
+      console.log('response got')
+      console.log(response)
+      if(response.data?.success){
+        localStorage.setItem('token', JSON.stringify(response?.data?.token))
+        dispatch(signIn())
+        navigate('/home')
+      }
     } catch (error) {
-      console.log(`error  : ${error}`)
+      toast.error(error?.response?.data?.message)
+      console.log(`error in signup response  : ${error}`)
+      reset({
+        userName : '',
+        email : '',
+        phoneNumber : '',
+        password : ''
+      })
     }
   }
   return (
     <>
       <div className="flex justify-center items-center h-screen bg-slate-300">
         <div className="h-auto w-[85%] md:w-[60%] lg:w-[40%] bg-zinc-700 justify-center flex  rounded-lg shadow-2xl">
+          <ToastContainer/>
           <form action="" method="post" onSubmit={handleSubmit(signUp)}>
             <div className="flex text-center justify-center my-10">
               <p className="font-mono font-extrabold text-4xl text-white">
