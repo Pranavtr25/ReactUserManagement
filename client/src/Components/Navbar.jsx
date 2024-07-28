@@ -19,7 +19,7 @@ const Navbar = ({username}) => {
 
   return (
     <>
-        <div className='h-[60px] w-full bg-[#07575B] flex justify-between items-cent sticky top-0'>
+        <div className='h-[60px] w-full bg-[#05393c] flex justify-between items-center sticky top-0'>
             <div>
                 <p className='text-4xl font-bold font-mono mx-10 text-white'>Profile</p>
             </div>

@@ -7,6 +7,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
+import swal from 'sweetalert'
 
 const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
@@ -38,7 +39,14 @@ const AdminHome = () => {
   const handleDelete = async (id) => {
     try {
       console.log(`req came to delete`);
-      const confirmed = window.confirm('Are you sure you want to delete this user?');
+      const confirmed = await swal({
+        title: "Are you sure?",
+        text: "Do you really want to delete this user?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      });
+  
       if (confirmed) {
         const response = await axios.post(`${VITE_SERVER_URL}/admin/deleteUser`, { id });
         if (response.data?.success) {

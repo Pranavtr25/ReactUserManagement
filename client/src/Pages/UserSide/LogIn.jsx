@@ -45,8 +45,8 @@ const LogIn = () => {
   }
   return (
     <>
-      <div className="flex justify-center items-center h-screen bg-slate-300">
-        <div className="h-auto w-[85%] md:w-[60%] lg:w-[40%] bg-zinc-700 justify-center flex rounded-lg shadow-2xl">
+      <div className="flex justify-center items-center h-screen bg-[#c3dfe6]">
+        <div className="h-auto w-[85%] md:w-[60%] lg:w-[40%] bg-[#05393c] justify-center flex rounded-lg shadow-2xl">
           <ToastContainer/>
           <form action="" onSubmit={handleSubmit(logIn)}>
             <div className="flex text-center justify-center my-10">

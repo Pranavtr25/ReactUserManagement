@@ -17,7 +17,7 @@ const AdminNavbar = ({admin}) => {
 
   return (
     <>
-        <div className='h-[60px] w-full bg-[#111826] flex justify-between items-cent sticky top-0'>
+        <div className='h-[60px] w-full bg-[#111826] flex justify-between items-cent sticky top-0 z-50'>
             <div>
                 <p className='text-4xl font-bold font-mono mx-10 text-white'>Users</p>
             </div>

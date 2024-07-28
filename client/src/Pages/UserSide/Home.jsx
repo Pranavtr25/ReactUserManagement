@@ -65,7 +65,7 @@ const Home = () => {
         <Navbar username = {userData?.username}/>
         <div className='h-screen w-full bg-[#C4DFE6] flex items-center justify-center'>
             <ToastContainer />
-        <div className='bg-[#07575B] p-8 rounded shadow-lg flex items-center justify-center'>
+        <div className='bg-[#05393c] p-8 rounded shadow-lg flex items-center justify-center'>
             <div className='m-10 flex flex-col items-center'>
                 <form action="" onSubmit={submitHandler}>
 
