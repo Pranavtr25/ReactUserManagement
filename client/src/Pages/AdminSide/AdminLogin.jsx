@@ -101,7 +101,7 @@ const AdminLogin = () => {
             </div>
             <button
               type="submit"
-              className="text-[#eef9dc] border rounded py-2 px-5 my-5 md:text-lg hover:bg-white hover:text-[#69945c]"
+              className="text-[#eef9dc] border rounded py-2 px-5 my-5 md:text-lg hover:bg-white hover:text-[#111826]"
             >
               Log In
             </button>

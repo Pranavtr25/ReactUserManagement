@@ -3,6 +3,7 @@ import Navbar from '../../Components/Navbar'
 import axios from 'axios'
 import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
+import blankProfile from '../../images/blank-profile-picture.webp'
 
 const VITE_SERVER_URL = import.meta.env.VITE_SERVER_URL
 
@@ -23,6 +24,8 @@ const Home = () => {
                 img_url,
                 phone
             })
+            console.log('234567654')
+            console.log(userData)
         }
         fetchData()
     },[])
@@ -68,8 +71,11 @@ const Home = () => {
         <div className='bg-[#05393c] p-8 rounded shadow-lg flex items-center justify-center'>
             <div className='m-10 flex flex-col items-center'>
                 <form action="" onSubmit={submitHandler}>
-
-                    <img className='h-[150px] w-[200px] rounded shadow-2xl' src={showImage ? URL.createObjectURL(showImage): `${VITE_SERVER_URL}/images/${userData.img_url}`} alt="" />
+                    {
+                        !userData?.img_url && !showImage ? 
+                        <img className='h-[150px] w-[180px] rounded shadow-2xl' src={blankProfile} alt="" /> :
+                        <img className='h-[150px] w-[180px] rounded shadow-2xl' src={showImage ? URL.createObjectURL(showImage): `${VITE_SERVER_URL}/images/${userData.img_url}`} alt="" /> 
+                    }
                 
                     {
                         fileValue && 

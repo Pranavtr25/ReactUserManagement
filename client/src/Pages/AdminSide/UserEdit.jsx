@@ -108,7 +108,7 @@ const UserEdit = () => {
             </div>
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-[#6f7d96] text-white font-bold rounded-md hover:bg-[#5c677b] focus:outline-none focus:ring-2 focus:ring-[#9ca3a6]"
+              className="w-full my-5 px-4 py-2 bg-[#6f7d96] text-white font-bold rounded-md hover:bg-[#5c677b] focus:outline-none focus:ring-2 focus:ring-[#9ca3a6]"
             >
               Save
             </button>
